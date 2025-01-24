@@ -1,34 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import User from './components/User'
+import Button from './components/Button'
+import Userinfo from './components/Userinfo'
+import Admininfo from './components/Admininfo'
+import { Admin } from './components/types'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const App = () => {
+
+  const admin: Admin = {
+    id: 123,
+    name: 'Aryan',
+    email: 'hi@gmail.com',
+    isAdmin: 'No', // Boolean value for isAdmin
+    lastLogin: new Date(), // CamelCase property name
+  };
+  
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      {/* <User name='Aryan' age={19} isStudent={true}/> */}
+      {/* <Button label='Hi there You clicked on Button' 
+      onclick={()=>console.log('click me')} '
+      disable={false}/> */}
+      <Userinfo id={123} name='Aryan' email='ji@gmail.com'/>
+      <Admininfo props={admin}/>
+    </div>
   )
 }
 
